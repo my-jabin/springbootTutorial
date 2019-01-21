@@ -16,7 +16,6 @@ import com.jiujiu.springboot.config.AppConfig;
 
 @SpringBootApplication
 @EnableConfigurationProperties(AppConfig.class)
-@EnableJpaAuditing
 public class MainApp {
 
 	private static final Logger log =  LoggerFactory.getLogger(MainApp.class);
