@@ -1,7 +1,9 @@
 package com.jiujiu.springboot;
 
+import com.jiujiu.springboot.model.Link;
 import com.jiujiu.springboot.model.Role;
 import com.jiujiu.springboot.model.User;
+import com.jiujiu.springboot.repo.LinkRepository;
 import com.jiujiu.springboot.repo.RoleRepository;
 import com.jiujiu.springboot.repo.UserRepository;
 
@@ -22,10 +24,12 @@ public class DatabaseLoader implements CommandLineRunner {
 
     private UserRepository userRepository;
     private RoleRepository roleRepository;
+    private LinkRepository linkRepository;
 
-    public DatabaseLoader(UserRepository userRepository, RoleRepository roleRepository) {
+    public DatabaseLoader(UserRepository userRepository, RoleRepository roleRepository,LinkRepository linkRepository) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
+        this. linkRepository = linkRepository;
     }
 
     @Override
@@ -33,6 +37,13 @@ public class DatabaseLoader implements CommandLineRunner {
         System.out.println("database loader...");
 
         addUserAndRoles();
+
+        addLinks();
+    }
+
+    private void addLinks() {
+        Link l = new Link("Link testing","www.google.com");
+        this.linkRepository.save(l);
     }
 
     private void addUserAndRoles() {

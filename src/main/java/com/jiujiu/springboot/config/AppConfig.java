@@ -2,6 +2,8 @@ package com.jiujiu.springboot.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
+import javax.validation.constraints.Size;
+
 @ConfigurationProperties("appconfig")
 public class AppConfig {
 
@@ -13,6 +15,7 @@ public class AppConfig {
 	/*
 	 * This is client secret
 	 */
+
 	private String clientSecret = "clientSecret";
 
 	public String getWelcomeMsg() {
